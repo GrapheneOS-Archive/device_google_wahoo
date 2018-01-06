@@ -129,7 +129,6 @@ MASTER_SIDE_CP_TARGET_LIST := msm8998 # ION specific settings
 # A/B support
 PRODUCT_PACKAGES += \
     otapreopt_script \
-    cppreopts.sh \
     update_engine \
     update_verifier
 
