@@ -83,9 +83,6 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Install odex files into the other system image
-BOARD_USES_SYSTEM_OTHER_ODEX := true
-
 BOARD_ROOT_EXTRA_FOLDERS := persist firmware metadata
 
 BOARD_SEPOLICY_DIRS += device/google/wahoo/sepolicy/vendor
