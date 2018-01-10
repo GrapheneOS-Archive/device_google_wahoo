@@ -41,8 +41,6 @@ service vendor.charger /charger
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
-    # Loading kernel modules in background
-    start vendor.insmod_sh
 
 on init
     # Disable UFS powersaving
@@ -392,8 +390,6 @@ on zygote-start
 on early-boot
     # wait for devices
     wait_for_prop sys.qcom.devup 1
-    # wait for insmod_sh to finish all modules
-    wait_for_prop sys.all.modules.ready 1
     # Update dm-verity state and set partition.*.verified properties
     verity_update_state
 
@@ -822,13 +818,6 @@ service vendor.ipastart_sh /vendor/bin/init.qcom.ipastart.sh
     class main
     user system
     group net_admin
-    disabled
-    oneshot
-
-service vendor.insmod_sh /vendor/bin/init.insmod.sh
-    class main
-    user root
-    group root system
     disabled
     oneshot
 
